@@ -60,7 +60,12 @@ const getStyles = function getStyles() {
     } else {
       styles.backgroundImage = "url(" + this.props.bgImage + ")";
     }
-    styles.backgroundSize = "cover";
+    if(this.props.bgFill) {
+      styles.backgroundSize = "contain";
+      styles.backgroundRepeat = "no-repeat";
+    } else {
+      styles.backgroundSize = "cover";
+    }
     styles.backgroundPosition = "center center";
   }
   return styles;
