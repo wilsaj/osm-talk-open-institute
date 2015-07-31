@@ -7,6 +7,7 @@ module.exports = function(data) {
           '<head>',
             '<meta charset="utf-8"/>',
             '<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>',
+            '<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">',
             '<link href="http://fonts.googleapis.com/css?family=Lobster+Two:400,700" rel="stylesheet" type="text/css">',
             '<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">',
             '<link href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" rel="stylesheet" type="text/css">',

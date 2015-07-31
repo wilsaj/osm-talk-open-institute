@@ -1,11 +1,12 @@
 const colors = {
-  primary: "#f9c300",
-  secondary: "black",
-  tertiary: "white"
+  primary: "#FCF7C5",
+  secondary: "#29221F",
+  tertiary: "#FC354C"
 };
 
 const fonts = {
   primary: "Open Sans Condensed",
+  //primary: "Montserrat",
   secondary: "Lobster Two",
   tertiary: "monospace"
 };
