@@ -1,14 +1,15 @@
 import React from "react/addons";
 import Radium from "radium";
+import Base from "./base";
 
 @Radium
-class Layout extends React.Component {
+class Layout extends Base {
   render() {
     const styles = {
       display: "flex"
     };
     return (
-      <div style={[styles]}>
+      <div style={[styles, this.getStyles()]}>
         {this.props.children}
       </div>
     );

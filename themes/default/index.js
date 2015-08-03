@@ -1,7 +1,9 @@
 const colors = {
   primary: "#FCF7C5",
   secondary: "#29221F",
-  tertiary: "#FC354C"
+  tertiary: "#FC354C",
+  quaternary: "#13747D",
+  quinary: "#0ABFBC",
 };
 
 const fonts = {
@@ -175,7 +177,7 @@ module.exports = {
       h3: {
         color: "black",
         fontSize: "4.9em",
-        fontFamily: fonts.secondary,
+        fontFamily: fonts.primary,
         lineHeight: 1,
         fontWeight: "bold",
         margin: "0.5em auto"

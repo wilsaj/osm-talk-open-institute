@@ -2,7 +2,7 @@ import React from "react/addons";
 
 import {
   Appear, BlockQuote, Cite, CodePane, Deck, Fill, Fit,
-  Heading, Image, Layout, Link, ListItem, List, Quote, Slide, Text
+  Heading, Image, Layout, Link, ListItem, List, Quote, S, Slide, Text
 } from "../src/spectacle";
 
 
@@ -22,6 +22,12 @@ const images = {
   taskManager: require("./nepal-hotosm-task-manager.png"),
   nepalRescueMap: require("./nepal-canadian-rescue-map.png"),
   missingMapsProcess: require("./missing-maps-process.svg"),
+
+  //https://www.flickr.com/photos/isohedral/14675824683/
+  espressoPour: require("./moon-shot-espresso-cup-14675824683_c17e10c8a2_k.jpg"),
+
+  //https://www.flickr.com/photos/biblarte/9963929406/in/photolist-gbtK5j-cvXbGE-hghPwY-gbu4kV-67UZCU-6RYpHp-fEAYXj-os4AMh-bNtVQ-55AERH-3bxdXe-n71Tt2-7ziHrZ-o5erp3-fUApRE-bm1Y1H-9916kg-hUnRYZ-5CSMrX-hSwQbK-apAQwp-4Q8dXu-63obju-gbzS6G-gbAcQP-63iUS4-37sjB-51ffP-aBgQeQ-7NqwRf-fDZWw5-nFvACJ-4rt2p8-nHjfEd-nHju1d-nHjinN-qGRGFt-nr4PAh-nGByxE-nHKHpL-nr4JBu-nKNa1F-nGNZZH-pWgN8p-nGwaar-nKMUKB-nGNNYz-nK8JZk-nqdEDN-nqRYxu
+  pracaDoComercio: require("./praca-do-comercio-9963929406_4ba50c00e3_o.jpg"),
 };
 
 const huge = {
@@ -38,7 +44,7 @@ export default class extends React.Component {
           bgColor="primary"
           notes="Audience Questions: Who has heard of OSM? Used OSM? Edited OSM?"
         >
-          <Heading size={1} fit caps textColor="black">
+          <Heading size={1} fit caps textColor="secondary">
             OpenStreetMap!
           </Heading>
         </Slide>
@@ -52,19 +58,22 @@ export default class extends React.Component {
           <Heading size={1} bold fit caps textColor="primary">
             OpenStreetMap is
           </Heading>
-          <Appear>
+          <Appear fid="1">
             <Heading size={2} caps fill textColor="tertiary">"Wikipedia of maps"</Heading>
           </Appear>
-          <Appear>
+          <Appear fid="2">
             <Heading size={2} caps fill textColor="tertiary">Map of the planet</Heading>
           </Appear>
-          <Appear>
+          <Appear fid="3">
             <Heading size={2} caps fill textColor="tertiary">Free to edit</Heading>
           </Appear>
-          <Appear>
-            <Heading size={2} caps fill textColor="tertiary">Free to use</Heading>
+          <Appear fid="4">
+            <Heading size={2} caps fill textColor="tertiary">Free to use*</Heading>
+            <Heading size={4} caps fill textColor="tertiary">*under ODbL</Heading>
           </Appear>
         </Slide>
+
+
 
         <Slide full bgColor="primary" margin="0px" width="100%" height="100%">
           <LeafletMap
@@ -137,7 +146,7 @@ export default class extends React.Component {
         </Slide>
 
 
-        <Slide transition={["slide"]} bgColor="black"
+        <Slide transition={["slide"]} bgColor="secondary"
           notes="In their own words..."
         >
           <BlockQuote>
@@ -170,118 +179,262 @@ export default class extends React.Component {
         <Slide transition={["slide"]} bgColor="white" bgFill={true} bgImage={images.IDPCamps.replace('/','')}>
         </Slide>
 
-
-        <Slide bgColor="primary"
-          notes=" Also, I think relevant to the interests of most of us here is that some of this work requires compromise. High quality imagery of all of these places is not generally freely available. . There is an fascinating talk that was given by John Crowley at State of the Map US in June, that explores the dynamics of the international and intergovernmental humanitarian community and OpenStreetMap and tension between 'openness' and the practical side of how some of these organizations work with regards to things like licensing high resolution imagery. If you are at all interested in this stuff, definitely watch that."
+        <Slide bgColor="tertiary"
+          notes=" Also, I think relevant to the interests of most of us here is that some of this work requires compromise. High quality imagery of all of these places is not generally freely available. There was a fascinating talk John Crowley at State of the Map US in June, that explores the dynamics of the international and intergovernmental humanitarian community and OpenStreetMap and tension between 'openness' and the practical side of how some of these organizations work with regards to things like licensing high resolution imagery. If you are at all interested in this stuff, definitely watch that."
         >
-          <Heading size={1} caps fill textColor="tertiary">
+          <Heading size={1} caps fit textColor="primary">
             compromise
           </Heading>
           <Appear>
-            <Heading size={2} caps fill textColor="secondary">
-              source imagery often comes with restrictions
+            <Heading size={2} caps fit textColor="secondary">
+              source imagery
+            </Heading>
+            <Heading size={2} caps fit textColor="secondary">
+              is often restricted
             </Heading>
           </Appear>
         </Slide>
 
-
-
         <Slide bgColor="primary">
-          <Heading size={1} fit caps textColor="black">
-            OpenStreetMap!
+          <Heading size={1} fit caps textColor="secondary">
+            Working with OpenStreetMap Data
           </Heading>
-          <Heading size={1} fit caps margin="-20px 0px">
-            A ReactJS Presentation Library
+          <Heading size={1} fit caps textColor="secondary">
+            for your own projects
           </Heading>
-          <Heading size={2} fit caps textColor="black">
-            Where You Can Write Your Decks In JSX
+        </Slide>
+
+        <Slide>
+          <Heading size={2} caps fit>
+            <Link textColor="secondary" href="http://opendatacommons.org/licenses/odbl/">Open Database License</Link>
           </Heading>
-          <Link href="https://github.com/FormidableLabs/spectacle">
-            <Text bold caps textColor="tertiary">View on Github</Text>
-          </Link>
-          <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
+          <Text caps textColor="quaternary">
+            TL;DR you are free to share, create, adapt as long as you
+          </Text>
+          <Text caps textColor="quaternary">
+              <S type="bold"> attribute </S> and
+              <S type="bold"> share-alike </S>
+          </Text>
         </Slide>
-        <Slide bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-          <Image src={images.city.replace('/','')} margin="0px" width="100%" height="100%"/>
-        </Slide>
-        <Slide bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
-          <CodePane
-            lang="javascript"
-            source={require("raw!./deck.example")}
-            margin="20px auto"/>
-        </Slide>
-        <Slide bgImage={images.city.replace("/", "")} bgDarken={0.75}>
+
+        <Slide bgColor="secondary" bgImage={images.espressoPour.replace("/", "")} bgDarken={0.75}>
+          <Heading size={1} fit caps textColor="primary">
+            Choose your extract
+          </Heading>
           <Appear fid="1">
-            <Heading size={1} caps fit textColor="primary">
-              Full Width
-            </Heading>
+            <Heading size={2} caps fill textColor="quinary">whole planet</Heading>
           </Appear>
           <Appear fid="2">
-            <Heading size={1} caps fit textColor="tertiary">
-              Adjustable Darkness
-            </Heading>
+            <Heading size={2} caps fill textColor="quinary">country / region</Heading>
           </Appear>
           <Appear fid="3">
-            <Heading size={1} caps fit textColor="primary">
-              Background Imagery
-            </Heading>
+            <Heading size={2} caps fill textColor="quinary">metro area</Heading>
           </Appear>
         </Slide>
-        <Slide bgImage={images.city.replace("/", "")} bgFill={true}>
-          <Heading size={1} caps fit textColor="primary">
-            Filled
+
+        <Slide bgColor="secondary"
+          notes="I'm going to take a moment to talk about how OpenStreetMap actually represents the world. I'll try not to get too far in the weeds, but it can help to be familiar with some of the terms and core concepts of OpenStreetMap. I'll talk more about each of these and show some real-world examples, but the four basic elements of OpenStreetMap are..."
+        >
+          <Heading size={1} fit caps textColor="primary">
+            How does it work?
           </Heading>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="right">
+                  nodes
+                </Heading>
+              </Fill>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="left">
+                  (points)
+                </Heading>
+              </Fill>
+            </Layout>
+          </Appear>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="right">
+                  ways
+                </Heading>
+              </Fill>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="left">
+                  (lines & polygons)
+                </Heading>
+              </Fill>
+            </Layout>
+          </Appear>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="right">
+                  relations
+                </Heading>
+              </Fill>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="left">
+                  (collections)
+                </Heading>
+              </Fill>
+            </Layout>
+          </Appear>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="right">
+                  tags
+                </Heading>
+              </Fill>
+              <Fill>
+                <Heading size={4} caps margin={10} textColor="quinary" textAlign="left">
+                  (key=value pairs)
+                </Heading>
+              </Fill>
+            </Layout>
+          </Appear>
         </Slide>
+
         <Slide bgColor="primary">
-          <Heading caps fit>Flexible Layouts</Heading>
-          <Layout>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Left
+          <Heading size={1} fit caps textColor="quaternary">
+            nodes (points)
+          </Heading>
+          <Appear>
+            <Heading size={2} caps fill textColor="secondary">points of interest</Heading>
+          </Appear>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">restaurants, restrooms, monuments, coffee shops, trees, transit stops, fire hydrants</Heading>
+          </Appear>
+        </Slide>
+
+        <Slide bgColor="primary">
+          <Heading size={1} fit caps textColor="quaternary">
+            ways (lines & polygons)
+          </Heading>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">lines - roads, rivers, fences, paths</Heading>
+          </Appear>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">polygons - administrative boundaries (states, countries), land use (residential, commercial, forest), buildings</Heading>
+          </Appear>
+        </Slide>
+
+        <Slide bgColor="primary">
+          <Heading size={1} fit caps textColor="quaternary">
+            relations (collections)
+          </Heading>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">for grouping very long routes into managable segments</Heading>
+          </Appear>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">also used to encode things like turn restrictions</Heading>
+          </Appear>
+        </Slide>
+
+        <Slide bgColor="primary">
+          <Heading size={1} fit caps textColor="quaternary">
+            tags (key=value pairs)
+          </Heading>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">can be attached to any OpenStreetMap object</Heading>
+          </Appear>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">describe what something is</Heading>
+          </Appear>
+          <Appear>
+            <Heading size={3} caps fill textColor="secondary">free-form, but conventions exist and <S type="bold" textColor="tertiary"> should </S> be used</Heading>
+          </Appear>
+        </Slide>
+
+
+        <Slide bgColor="secondary" bgImage={images.pracaDoComercio.replace("/", "")} bgDarken={0.55}
+          notes="So let's look at a some real-world examples. This is (how do you say that?). I'm sure most of you already know about it, but there used to be a palace here where the Kings lived. Unfortunately, in the mid-18th century, there was a really bad earthquake and tsunami that destroyed the palace and much of the city. Instead of rebuilding the palace here, they left it open and I guess they felt bad for the King at the time, so they made a statue of him on a horse and put that right in the middle. I'm going to click on this link and we take look a few things around this area."
+        >
+          <Link href="https://www.openstreetmap.org/way/96896573">
+            <Heading size={1} caps fit textColor="primary">
+                Praça Do Comercio
+            </Heading>
+          </Link>
+        </Slide>
+
+        <Slide bgColor="primary">
+          <Heading size={1} fit caps textColor="secondary">
+            How to Edit
+          </Heading>
+          <Appear>
+            <Link href="https://openstreetmap.org">
+              <Heading size={3} caps fill textColor="tertiary">
+                go to openstreetmap.org
               </Heading>
-            </Fill>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Right
+            </Link>
+          </Appear>
+          <Appear>
+            <Link href="https://openstreetmap.org">
+              <Heading size={3} caps fill textColor="quaternary">
+                sign up for a new account
               </Heading>
-            </Fill>
-          </Layout>
+            </Link>
+          </Appear>
+          <Appear>
+            <Link href="https://openstreetmap.org">
+              <Heading size={3} caps fill textColor="quinary">
+                start mapping (demo!)
+              </Heading>
+            </Link>
+          </Appear>
         </Slide>
-        <Slide transition={["slide"]} bgColor="black">
-          <BlockQuote>
-            <Quote>Wonderfully formatted quotes</Quote>
-            <Cite>Ken Wheeler</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide transition={["slide", "spin"]} bgColor="primary">
-          <Heading caps fit size={1} textColor="tertiary">
-            Smooth
+
+
+        <Slide bgColor="primary">
+          <Heading size={3} fit caps textColor="secondary">
+            some good resources
           </Heading>
-          <Heading caps fit size={1} textColor="secondary">
-            Combinable Transitions
-          </Heading>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Link href="http://learnosm.org/en/beginner/">
+                  <Heading size={5} caps margin={10} textColor="quinary" textAlign="left">
+                    http://learnosm.org/en/beginner/
+                  </Heading>
+                </Link>
+              </Fill>
+            </Layout>
+          </Appear>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Link href="http://wiki.openstreetmap.org/wiki/Map_Features">
+                  <Heading size={5} caps margin={10} textColor="quinary" textAlign="left">
+                    http://wiki.openstreetmap.org/wiki/Map_Features
+                  </Heading>
+                </Link>
+              </Fill>
+            </Layout>
+          </Appear>
+          <Appear>
+            <Layout>
+              <Fill>
+                <Link href="https://github.com/mapbox/mapping/wiki">
+                  <Heading size={5} caps margin={10} textColor="quinary" textAlign="left">
+                    https://github.com/mapbox/mapping/wiki
+                  </Heading>
+                </Link>
+              </Fill>
+            </Layout>
+          </Appear>
         </Slide>
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <List>
-            <ListItem><Appear fid="1">Inline style based theme system</Appear></ListItem>
-            <ListItem><Appear fid="2">Autofit text</Appear></ListItem>
-            <ListItem><Appear fid="3">Flexbox layout system</Appear></ListItem>
-            <ListItem><Appear fid="4">React-Router navigation</Appear></ListItem>
-            <ListItem><Appear fid="5">PDF export</Appear></ListItem>
-            <ListItem><Appear fid="6">And...</Appear></ListItem>
-          </List>
-        </Slide>
-        <Slide transition={["slide"]} bgColor="primary">
-          <Heading size={1} caps fit textColor="tertiary">
-            Your presentations are interactive
+
+
+        <Slide bgColor="primary">
+          <Heading size={1} fit caps textColor="secondary">
+            Thanks for listening!
           </Heading>
-          <Interactive/>
-        </Slide>
-        <Slide transition={["spin", "slide"]} bgColor="tertiary">
-          <Heading size={1} caps fit textColor="primary">
-            Made with love in Seattle by
-          </Heading>
-          <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+          <Link href="http://osmlab.github.io/show-me-the-way/">
+            <Heading size={3} caps fit textColor="quaternary">
+              let's go forth and map
+            </Heading>
+          </Link>
         </Slide>
       </Deck>
     );

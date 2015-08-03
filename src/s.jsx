@@ -1,11 +1,12 @@
 import React from "react/addons";
 import assign from "object-assign";
 import Radium from "radium";
+import Base from "./base";
 
 @Radium
-class S extends React.Component {
+class S extends Base {
   render() {
-    let styles = {};
+    let styles = this.getStyles();
     if (this.props.type.indexOf("strikethrough") !== -1) {
       styles = assign(styles, {textDecoration: "line-through"});
     }
@@ -17,6 +18,12 @@ class S extends React.Component {
     }
     if (this.props.type.indexOf("italic") !== -1) {
       styles = assign(styles, {fontStyle: "italic"});
+    }
+    if (this.props.type.indexOf("normal") !== -1) {
+      styles = assign(styles, {
+        fontStyle: "normal",
+        fontWeight: "normal",
+      });
     }
     return (
       <span style={[styles, this.context.styles.components.s[this.props.type]]}>
