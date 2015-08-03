@@ -140,6 +140,16 @@ export default class extends React.Component {
         </Slide>
 
         <Slide bgColor="primary"
+        >
+          tangrams
+        </Slide>
+
+        <Slide bgColor="primary"
+        >
+          mapsense
+        </Slide>
+
+        <Slide bgColor="primary"
           notes="There is also a serious side to OpenStreetMap. I think this is pretty cool, so I'm going to take a few minutes to talk about this."
         >
           <Image src={images.hotLogo.replace('/','')} margin="0px" width="100%" height="100%"/>
