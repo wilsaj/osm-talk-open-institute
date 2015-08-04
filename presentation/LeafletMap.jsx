@@ -7,12 +7,12 @@ class LeafletMap extends React.Component {
   render() {
     const views = {
       lisboa: {
-        center: [38.729983, -9.147491],
+        center: [38.719983, -9.147491],
         zoom: 14
       },
       porto: {
-        center: [41.157944, -8.629105],
-        zoom: 12
+        center: [41.147944, -8.619105],
+        zoom: 13
       },
       portugal: {
         center: [39.951859, -7.437500],
