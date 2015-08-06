@@ -6,6 +6,10 @@ import config from "../presentation/config";
 class LeafletMap extends React.Component {
   render() {
     const views = {
+      austin: {
+        center: [30.28, -97.7500],
+        zoom: 14
+      },
       lisboa: {
         center: [38.719983, -9.147491],
         zoom: 14

@@ -25,6 +25,8 @@ const images = {
   nepalRescueMap: require("./nepal-canadian-rescue-map.png"),
   missingMapsProcess: require("./missing-maps-process.svg"),
 
+  nepalFirstThreeDays: require("./mapbox-nepal-first-three-days-edits.gif"),
+
   //https://www.flickr.com/photos/isohedral/14675824683/
   espressoPour: require("./moon-shot-espresso-cup-14675824683_c17e10c8a2_k.jpg"),
 
@@ -44,7 +46,7 @@ export default class extends React.Component {
       <Deck transition={["fade"]} transitionDuration={300} progress="bar">
         <Slide
           bgColor="primary"
-          notes="Hi everyone. I'm Andy. Thanks for having me, I'm really excited to be here to talk about OpenStreetMap. I'm not directly associated with the project, I just think it's really cool and relevant to the themes of the this institute. I'm just curious: Who has heard of OSM? Used OSM? Edited OSM? Hopefully by the end of today, if I do my job, then everyone will be able say that they have."
+          notes="Hi everyone. I'm Andy. Thanks for having me, I'm really excited to be here to talk about OpenStreetMap. I'm not directly associated with the project, I just think it's really cool and relevant to the themes of the this institute. I'm just curious: Who has heard of OSM? Used OSM? Edited OSM? Hopefully by the end of today, then everyone will editing the map."
         >
           <Heading size={1} fit caps textColor="secondary">
             OpenStreetMap!
@@ -57,7 +59,7 @@ export default class extends React.Component {
         </Slide>
 
         <Slide transitionDuration={1000} bgColor="primary" bgImage={images.osmWorld.replace("/", "")} bgDarken={0.75}
-          notes="A good analogy is that OpenStreetMap is [click] a Wikipedia of maps. [click] It is a map of the planet, global in scope. Every place on earth can be put into OpenStreetmap. We'll come back to this a little bit later, but this is a big deal especially in developing countries where high quality digital maps don't yet exist - OpenStreetMap is a low-cost vehicle to creating those maps.[click] It is a a crowd-sourced, democratized map, anybody in the world can freely edit it. If you see errors in the map, you can fix them. If your your street or town, or village is missing, you can literally put yourself on the map. That's a very powerful thing. [click] And there aren't many restrictions on what you you can do with it. [click]"
+          notes="A good analogy is that OpenStreetMap is [click] a Wikipedia of maps. [click] It is a map of the planet, global in scope. Every place on earth can be put into OpenStreetmap. We'll come back to this a little bit later, but this is a big deal especially in developing countries where high quality digital maps don't yet exist - OpenStreetMap is a low-cost vehicle to creating those maps.[click] It is a a crowd-sourced, democratized map, anybody in the world can freely edit it. If you see errors in the map, you can fix them. Like we were talking about the favelas. If your your street or town, or village is missing, you can literally put yourself on the map. You don't need permission from any company or government. That's a very powerful thing. [click] And there aren't many restrictions on what you you can do with it. [click]"
         >
           <Heading size={1} bold fit caps textColor="primary">
             OpenStreetMap is
@@ -102,7 +104,17 @@ export default class extends React.Component {
 
 
         <Slide full bgColor="primary" margin="0px" width="100%" height="100%"
-           notes="So here is an example of what OpenStreetMap looks like. This is Portugal. I've heard it's a cool place. And it is pretty-well mapped."
+           notes="So here is an example of what OpenStreetMap looks like. This is Austin."
+         >
+          <LeafletMap
+            view='austin'
+            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
+        </Slide>
+
+        <Slide full bgColor="primary" margin="0px" width="100%" height="100%"
+           notes="This is Portugal. I've heard it's a cool place. And it is pretty-well mapped."
          >
           <LeafletMap
             view='portugal'
@@ -112,7 +124,7 @@ export default class extends React.Component {
         </Slide>
 
         <Slide bgColor="primary" margin="0px" width="100%" height="100%"
-           notes="Zooming in for some more detail. This is Lisbon (Lisboa?), Portugal."
+           notes="Zooming in for some more detail. This is Lisbon (Lisboa?), Portugal. Anybody from here?"
          >
           <LeafletMap
             view='lisboa'
@@ -143,7 +155,7 @@ export default class extends React.Component {
 
 
         <Slide bgColor="primary" margin="0px" width="100%" height="100%"
-           notes="This is Porto, Portgual in OpenStreetMap."
+           notes="This is Porto, Portgual in OpenStreetMap. Anybody from here?"
         >
           <LeafletMap
             view='porto'
@@ -184,26 +196,27 @@ export default class extends React.Component {
         </Slide>
 
         <Slide
+          bgColor="quaternary"
            notes="So those are fun, but I want to take a second to point out that because these all use the same underlying data, edits to OSM will show up on every one of these maps. I also wanted to show these things off, because at first glance if you directly visit the openstreetmap project, it appears kind of utilitarian. But that's because the openstreetmap.org site focuses on just the data - but there are lots of people doing very beautiful things with OpenStreetMap outside of the project itself."
          >
-          <Heading size={2} caps fit>
+          <Heading textColor="secondary" size={1} caps fit>
             edits to openstreetmap
           </Heading>
-          <Heading size={2} caps fit>
+          <Heading size={3} caps fit textColor="primary">
             are edits to all of these maps
           </Heading>
         </Slide>
 
 
         <Slide bgColor="primary"
-          notes="Switching gears a little bit, but I think this is awesome and I want to take a second to talk about it. There is also an affiliated group called the Humanitarian OpenStreetMap Team..."
+          notes="Switching gears a little bit, I want to take a second to talk about an affiliated group called the Humanitarian OpenStreetMap Team..."
         >
           <Image src={images.hotLogo.replace('/','')} margin="0px" width="100%" height="100%"/>
         </Slide>
 
 
         <Slide transition={["slide"]} bgColor="secondary"
-          notes="In their own words... (read thing). HOT OSM organizes mappers around the world to focus on places that need to be mapped. Then they interface with established institutions like the Red Cross, Doctors without Borders, the United Nations, and the World Bank and work to get them updated OpenStreetMap data as quickly as possible."
+          notes="In their own words... (read thing). HOT OSM interfaces between OpenStreetMappers around the world and established humanitarian institutions like the Red Cross, Doctors without Borders, and the United Nations."
         >
           <BlockQuote>
             <Quote>The Humanitarian OpenStreetMap Team [HOT] applies the principles of open source and open data sharing for humanitarian response and economic development.</Quote>
@@ -212,21 +225,29 @@ export default class extends React.Component {
         </Slide>
 
         <Slide bgColor="primary" bgFill={true} bgImage={images.missingMapsProcess.replace('/','')}
-          notes="What does that look like? This is from the missing maps project, which is focused on non-crisis mapping. Remote volunteers fill in the map by tracing high resolution imagery that has been donated by companies and governments. Details get filled in by people on the ground and then humanitarian organizations can use the maps to do their work. From what I understand, this is more or less how things work when mapping for crisis situations, but under a more compressed timeline."
+          notes="What does that look like? . Step 1: Remote volunteers fill in the map by tracing high resolution imagery that has been donated by companies and governments. Step 2: Details get filled in by people on the ground and then step 3 is that humanitarian organizations can use the maps to do their work. This is from the missing maps project, which is focused on non-crisis mapping. From what I understand, this is more or less how things work when mapping for crisis situations like natural disasters, but under a more compressed timeline."
         >
+        </Slide>
+
+        <Slide bgColor="black"
+          notes="This works pretty well. This is a visualization that was produced by Mapbox showing the first three days of OpenStreetMap edits in Nepal. The initial focus after a disaster is to map road networks and because connectivity is incredibly important for the response and usually easy to do by tracing imagery."
+        >
+          <Image src={images.nepalFirstThreeDays.replace('/','')} margin="0px" width="100%" height="100%"/>
         </Slide>
 
         <Slide bgColor="primary" bgFill={true} bgImage={images.taskManager.replace('/','')}
-          notes="This is the task manager. It is used to coordinate these large-scale remote mapping efforts."
+          notes="This is the task manager. It is a tool developed by HOT to coordinate these large-scale remote mapping efforts. Tasks are determined by the needs of Humanitarian organizations and focus on a specific area and mapping need. Tiles get generated and volunteer mappers around the world can log into the task manager, choose a tile and begin working. Choosing a tile lets other mappers know that you are working on it, so it divides up the work fairly efficiently. The task we are looking at was from the Nepal response. It is focused on the region just east of Kathmandu. On the left, there is a place for instructions and links to updated satellite imagery taken just after the earthquake, and asks that people map destroyed buildings and encampments where people are living (because buildings were destroyed or unlivable)."
         >
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="white" bgFill={true} bgImage={images.IDPCamps.replace('/','')}>
+        <Slide transition={["slide"]} bgColor="white" bgFill={true} bgImage={images.IDPCamps.replace('/','')}
+          notes="This is a graphic that was published by the New York Times a few days after the earthquake showing encampments in Kathmandu that had been mapped in OpenStreetMap through these distributed tasks."
+        >
         </Slide>
 
 
         <Slide bgImage={images.nepalRescueMap.replace("/", "")} bgDarken={0.75}
-          notes="This is literally saving lives with open data. Whoa."
+          notes="This is literally saving lives with data. It means that relief workers can have good quality maps of a situation within hours of a disaster and can make know where help is needed and how to get there. And thousands of people half-way across the planet can directly contribute to that relief effort. That's a really powerful connection. This is also a work in progress - there are a lot of pieces of this still being built and the kinks are being worked out and streamlined. That work is happening right now and I don't doubt that OpenStreetMap will only become more important for humanitarian work in the future."
         >
           <Heading size={1} caps fit textColor="tertiary">
             saving lives
@@ -237,11 +258,11 @@ export default class extends React.Component {
         </Slide>
 
 
-        <Slide bgColor="primary"
+        <Slide bgColor="quinary"
           notes="So all of that was to explain why I think OpenStreetMap is so cool and worth spending some time with. So hopefully some of you are wondering how to get involved. The easiest way to start is to learn how to edit OpenStreetMap and that's what we'll talk about for the rest of this workshop."
         >
-          <Heading size={1} fit caps textColor="secondary">
-            this is awesome!
+          <Heading size={1} fit caps textColor="tertiary">
+            sounds great!
           </Heading>
           <Heading size={2} fit caps textColor="secondary">
             Where do we start?
@@ -452,13 +473,15 @@ export default class extends React.Component {
         </Slide>
 
 
-        <Slide bgColor="primary">
-          <Heading size={1} fit caps textColor="secondary">
+        <Slide bgColor="quaternary"
+          notes="Thank you very much for listening! I hope this was helpful. I can hang out for a while if anybody wants to talk about OpenStreetMap or do some mapping. This is a final cool OpenStreetMap thing to show. It's called show me the way [click link]"
+        >
+          <Heading size={1} fit caps textColor="primary">
             Thanks for listening!
           </Heading>
           <Link href="http://osmlab.github.io/show-me-the-way/">
-            <Heading size={3} caps fit textColor="quaternary">
-              let's go forth and map
+            <Heading size={3} caps fit textColor="tertiary">
+              let's map
             </Heading>
           </Link>
         </Slide>
