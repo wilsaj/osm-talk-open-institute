@@ -1,4 +1,4 @@
-# Introduction to Openstreetmap
+# Introduction to OpenStreetMap
 
 Presentation on OpenStreetMap for the [Open
 Institute](http://moody.utexas.edu/tipi/open-institute) at UT Austin.
